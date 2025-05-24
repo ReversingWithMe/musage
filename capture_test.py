@@ -10,7 +10,6 @@ import multiprocessing
 import time
 import sys
 import os
-import atexit
 from datetime import datetime
 from musage import register_mempoll
 
@@ -100,7 +99,6 @@ def main():
                 name=f"MemoryChild-{child_id}"
             )
             process.start()
-            processes.append(process)
 
             print(f"[{datetime.now().strftime('%H:%M:%S')}] Child {child_id} spawned (PID: {process.pid})")
 
@@ -143,11 +141,6 @@ def main():
 
     except Exception as e:
         print(f"[{datetime.now().strftime('%H:%M:%S')}] Error in main process: {e}")
-
-    finally:
-        # Stop memory monitoring
-        stop_monitor.set()
-        monitor_thread.join(timeout=1)
 
 if __name__ == "__main__":
     # Use 'fork' on Unix systems (Linux, macOS) for better performance
