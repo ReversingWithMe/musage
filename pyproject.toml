@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "musage"
+version = "0.0.1"
+description = ""
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = []
+
+[project.urls] # Optional
+# "Homepage" = "https://myhomepage.com"
